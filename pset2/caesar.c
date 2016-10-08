@@ -1,11 +1,3 @@
-//
-//  caesar.c
-//  
-//
-//  Created by Aleksey Samusenko on 10/2/16.
-//
-//
-
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
@@ -27,16 +19,16 @@ int main (int argc, char* argv[]){
     string plain_text = GetString();
     
     for (int i = 0, n = strlen(plain_text); i < n; i++ ){
-        
+
         char letter = plain_text[i];
         
-        if(isalpha(letter) == true){
+        //checking if the char is an alphabetic letter
+        if(isalpha(letter)){
             printf("%c\n", letter);
         };
         
         
         //checking if the letter is in the alphabet
-        
         
     };
     
