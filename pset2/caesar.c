@@ -15,7 +15,7 @@ int main (int argc, char* argv[]){
     //setting the key value
     int key = atoi(argv[1]);
     
-    //asking the user to enter plaintext
+    //plaintext
     string plain_text = GetString();
     
     for (int i = 0, n = strlen(plain_text); i < n; i++ ){
@@ -33,9 +33,9 @@ int main (int argc, char* argv[]){
                 isupper_islower = 97;
             };
             //here we are getting ascii code of the letter
-            int ascii_capital_letter = letter;
+            int ascii_letter = letter;
                 //getting alphabetical value from the ascii one
-            int alphabetical_letter_index = (ascii_capital_letter - isupper_islower);
+            int alphabetical_letter_index = (ascii_letter - isupper_islower);
                 //this is a formula to around the alpahbet
             int alphabetical_result = (alphabetical_letter_index + key) % 26;
                 //getting ascii value from the alphabeticalone
