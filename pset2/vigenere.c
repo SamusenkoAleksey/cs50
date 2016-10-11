@@ -15,6 +15,8 @@ int main (int argc, char* argv[]){
     };
     
     string key_word = (argv[1]);
+    //counter for the key word
+    int counter = 0;
     
     //testing if the key word contains only alphabetical characters
     for(int i = 0, n = strlen(key_word) ; i < n ; i++){
@@ -26,10 +28,12 @@ int main (int argc, char* argv[]){
     
     //plaintext
     string plain_text = GetString();
+
     
     for (int i = 0, n = strlen(plain_text); i < n; i++ ){
         
         char letter_text = plain_text[i];
+        
         
         if(isalpha(letter_text)){
             //starting the plain text process
@@ -43,9 +47,14 @@ int main (int argc, char* argv[]){
             
             
             //working with the key word here--------------
-            
             int word_length = strlen(key_word);
-            char letter_word = key_word[ i % word_length];
+            if(counter == word_length){
+                counter = 0;
+                //printf("work");
+            }
+            
+            char letter_word = key_word[counter%word_length];
+            printf("\"%i\"", counter);
             int up_low_letter_word = IsupperIslower(letter_word);
             int ascii_letter_word = letter_word;
             int alphabetical_letter_index_word = (ascii_letter_word - up_low_letter_word);
@@ -54,12 +63,13 @@ int main (int argc, char* argv[]){
             int alphabetical_result = (alphabetical_letter_index_text + alphabetical_letter_index_word) % 26;
             int ascii_result = (alphabetical_result + up_low_letter_text);
             printf("%c", ascii_result);
+            
+            counter = counter + 1;
         }else{
             printf("%c", letter_text);
         };
         
     };
-    
     printf("\n");
    
 }
