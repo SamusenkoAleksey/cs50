@@ -18,8 +18,9 @@ bool search(int value, int values[], int n)
 {
     // TODO: implement a searching algorithm
 
+
+    // **LINEAR SEARCH**
     // return "false" in case "n" is negative number
-    
     if(n < 0){
         return false;
     };
@@ -33,7 +34,9 @@ bool search(int value, int values[], int n)
         
     }
     //return "false" if there isn't "value" in "values" array
+
     return false;
+    return -1;
 }
 
 /**
@@ -41,6 +44,21 @@ bool search(int value, int values[], int n)
  */
 void sort(int values[], int n)
 {
-    // TODO: implement an O(n^2) sorting algorithm
+    
+    //selection sort
+    for(int i = 0; i < n - 1 ; i++){
+        int current_minimum = values[i];
+        int replaced_element;
+        for(int j = i + 1; j < n ; j++){
+            replaced_element = j;
+           if(values[j] < current_minimum){
+               current_minimum = values[j];
+           }
+        };
+        if(current_minimum != values[i]){
+            values[replaced_element] = values[i];
+            values[i] = current_minimum;
+        };
+    };
     return;
 }
